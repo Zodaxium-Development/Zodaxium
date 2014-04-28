@@ -1,0 +1,28 @@
+name: ZEssentials
+author: Zodaxium
+version: 1
+description: Zodaxium Spawn Plugin
+main: me.zodaxium.zessentials.ZEssentials
+commands:
+  spawn:
+    description: Teleport to Spawn!
+    usage: /spawn
+  setspawn:
+    description: Set server Spawn!
+    usage: /setspawn
+  gm:
+    description: Change your gamemode
+    usage: /gm (mode) [player]
+  time:
+    description: Check a world time
+    usage: /time [world]
+  day:
+    description: Set world time to day
+    usage: /day [world]
+  night:
+    description: Set world time to night
+    usage: /night [world]
+  ci:
+    description: Clear your inventory
+    usage: /ci [player]
+    aliases: [clear]
