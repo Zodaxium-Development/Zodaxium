@@ -29,3 +29,7 @@ commands:
   head:
     description: Get a player head
     usage: /head [player]
+  signedit:
+    description: Change sign text
+    usage: /signedit (#) (text)
+    aliases: [se, sedit]
