@@ -26,6 +26,7 @@ public class Listenermove implements Listener{
 		if(loc.getY() <= -5){ 
 			p.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
 			p.teleport(plugin.spawn);
+			p.setFallDistance(0);
 		}
 	}
 }

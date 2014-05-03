@@ -27,7 +27,7 @@ public class Listenerjoin implements Listener{
 				public void run() {
 					p.teleport(plugin.spawn);
 				}			
-			}, 3);
+			}, 10);
 		}
 	}
 }

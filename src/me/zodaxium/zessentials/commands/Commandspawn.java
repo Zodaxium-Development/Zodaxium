@@ -3,7 +3,6 @@ package me.zodaxium.zessentials.commands;
 import me.zodaxium.zessentials.Reference;
 import me.zodaxium.zessentials.ZEssentials;
 
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -40,16 +39,7 @@ public class Commandspawn implements CommandExecutor{
 								t.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
 								p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer: &9" + t.getName() + " &asent to spawn"));
 							}else{
-								OfflinePlayer op = plugin.getServer().getOfflinePlayer(args[0]);
-								if(op.hasPlayedBefore()){
-									if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
-										op.getPlayer().teleport(plugin.spawn);
-									}else{
-										p.sendMessage(plugin.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
-									}
-								}else{
-									p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Not Online"));
-								}
+								p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Not Online"));
 							}
 						}else{
 							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
