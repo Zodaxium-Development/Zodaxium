@@ -35,9 +35,10 @@ public class Commandsign implements CommandExecutor{
 							if(line <= 4 && line >= 1){
 								if(text.length() <= 16){
 									if(!text.equalsIgnoreCase("%empty%")){
-										sign.setLine(line - 1, text);
+										String newtext = text.replaceAll("%", " ");
+										sign.setLine(line - 1, newtext);
 										sign.update();
-										p.sendMessage(plugin.colorize(Reference.PREFIX + "&aLine: &9" + line + "&a, Text: &9" + text));
+										p.sendMessage(plugin.colorize(Reference.PREFIX + "&aLine: &9" + line + "&a, Text: &9" + newtext));
 									}else{
 										sign.setLine(line - 1, "");
 										sign.update();

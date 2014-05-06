@@ -15,6 +15,7 @@ import me.zodaxium.zessentials.listeners.Listenermove;
 import me.zodaxium.zessentials.listeners.Listenerquit;
 import me.zodaxium.zessentials.listeners.Listenerrespawn;
 import me.zodaxium.zessentials.listeners.Listenersign;
+import me.zodaxium.zessentials.timers.TimerWorldSave;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -23,12 +24,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class ZEssentials extends JavaPlugin{
 	
 	public Location spawn = null;
+	public int saveTimer = 0;
 	
 	public void onEnable(){
 		saveDefaultConfig();
 		
 		generateVariables();
 		registerClasses();
+		
+		getServer().getScheduler().scheduleSyncRepeatingTask(this, new TimerWorldSave(this), 0, saveTimer);
 	}
 	
 	private void registerClasses(){
@@ -53,6 +57,7 @@ public class ZEssentials extends JavaPlugin{
 	private void generateVariables(){
 		String[] loc = getConfig().getString("Spawn").split(":");
 		spawn = ((getServer().getWorld(loc[0]) != null) ? new Location(getServer().getWorld(loc[0]), Double.parseDouble(loc[1]), Double.parseDouble(loc[2]), Double.parseDouble(loc[3]), Float.parseFloat(loc[4]), Float.parseFloat(loc[5])) : null);
+		saveTimer = (getConfig().getInt("SaveTimer") * 20) * 60;
 	}
 	
 	public String colorize(String message){
