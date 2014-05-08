@@ -3,6 +3,7 @@ author: Zodaxium
 version: 1
 description: Zodaxium Spawn Plugin
 main: me.zodaxium.zessentials.ZEssentials
+depends: [ProtocolLib]
 commands:
   spawn:
     description: Teleport to Spawn!
@@ -29,7 +30,3 @@ commands:
   head:
     description: Get a player head
     usage: /head [player]
-  signedit:
-    description: Change sign text
-    usage: /signedit (#) (text)
-    aliases: [se, sedit]

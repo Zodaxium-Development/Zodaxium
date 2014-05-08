@@ -1,12 +1,13 @@
 package me.zodaxium.zessentials;
 
+import java.util.logging.Level;
+
 import me.zodaxium.zessentials.commands.Commandclear;
 import me.zodaxium.zessentials.commands.Commandday;
 import me.zodaxium.zessentials.commands.Commandgamemode;
 import me.zodaxium.zessentials.commands.Commandhead;
 import me.zodaxium.zessentials.commands.Commandnight;
 import me.zodaxium.zessentials.commands.Commandsetspawn;
-import me.zodaxium.zessentials.commands.Commandsign;
 import me.zodaxium.zessentials.commands.Commandspawn;
 import me.zodaxium.zessentials.commands.Commandtime;
 import me.zodaxium.zessentials.listeners.Listenercommand;
@@ -27,12 +28,19 @@ public class ZEssentials extends JavaPlugin{
 	public int saveTimer = 0;
 	
 	public void onEnable(){
+		if(!getServer().getPluginManager().getPlugin("ProtocolLib").isEnabled()){
+			this.setEnabled(false);
+			getLogger().log(Level.SEVERE, "Could not load ProtocolLib! Disabling.");
+		}
+		
 		saveDefaultConfig();
 		
 		generateVariables();
 		registerClasses();
 		
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new TimerWorldSave(this), 0, saveTimer);
+	
+		PacketUtils.registerPacketReceiver(this);
 	}
 	
 	private void registerClasses(){
@@ -42,7 +50,6 @@ public class ZEssentials extends JavaPlugin{
 		new Commandhead(this, "head");
 		new Commandnight(this, "night");
 		new Commandspawn(this, "spawn");
-		new Commandsign(this, "signedit");
 		new Commandsetspawn(this, "setspawn");
 		new Commandtime(this, "time");
 		
@@ -57,7 +64,7 @@ public class ZEssentials extends JavaPlugin{
 	private void generateVariables(){
 		String[] loc = getConfig().getString("Spawn").split(":");
 		spawn = ((getServer().getWorld(loc[0]) != null) ? new Location(getServer().getWorld(loc[0]), Double.parseDouble(loc[1]), Double.parseDouble(loc[2]), Double.parseDouble(loc[3]), Float.parseFloat(loc[4]), Float.parseFloat(loc[5])) : null);
-		saveTimer = (getConfig().getInt("SaveTimer") * 20) * 60;
+		saveTimer = (getConfig().getInt("SaveTimer") * 1200);
 	}
 	
 	public String colorize(String message){
