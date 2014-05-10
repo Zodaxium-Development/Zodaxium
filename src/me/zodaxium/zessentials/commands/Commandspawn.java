@@ -31,7 +31,7 @@ public class Commandspawn implements CommandExecutor{
 						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
 					}
 				}else{
-					if(p.hasPermission("zessentials.spawn.admin")){
+					if(p.hasPermission(Reference.PERM + "spawn.admin")){
 						Player t = plugin.getServer().getPlayer(args[0]);
 						if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
 							if(t != null){

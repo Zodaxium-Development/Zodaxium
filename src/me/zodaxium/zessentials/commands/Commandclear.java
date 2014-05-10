@@ -22,7 +22,7 @@ ZEssentials plugin;
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission("zessentials.clear")){
+			if(p.hasPermission(Reference.PERM + "clear")){
 				if(args.length == 0){
 					p.getInventory().clear();
 					p.getInventory().setArmorContents(null);

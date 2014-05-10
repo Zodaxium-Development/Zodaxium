@@ -22,7 +22,7 @@ public class Commandday implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission("zessentials.day")){
+			if(p.hasPermission(Reference.PERM + "day")){
 				if(args.length < 1){
 					p.getWorld().setTime(3000L);
 					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aWorld: &9" + p.getWorld().getName() + " &atime set to day"));

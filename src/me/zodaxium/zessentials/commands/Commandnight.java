@@ -22,7 +22,7 @@ public class Commandnight implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission("zessentials.night")){
+			if(p.hasPermission(Reference.PERM + "night")){
 				if(args.length < 1){
 					p.getWorld().setTime(15000L);
 					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aWorld: &9" + p.getWorld().getName() + " &atime set to night"));

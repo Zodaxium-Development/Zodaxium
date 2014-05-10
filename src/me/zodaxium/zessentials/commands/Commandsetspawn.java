@@ -23,7 +23,7 @@ public class Commandsetspawn implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission("zessentials.setspawn")){
+			if(p.hasPermission(Reference.PERM + "setspawn")){
 				Location loc = p.getLocation();
 				World world = loc.getWorld();
 				plugin.spawn = new Location(world, loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());

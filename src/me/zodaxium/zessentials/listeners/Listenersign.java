@@ -42,7 +42,7 @@ public class Listenersign implements Listener{
 		Block block = e.getClickedBlock();
 		if(block == null || !(block.getState() instanceof Sign)) return;
 		Sign sign = (Sign) block.getState();
-		if(p.isSneaking()) return;
+		if(!p.isSneaking()) return;
 		if(!p.hasPermission("zessentials.signedit")) return;
 		if(PacketUtils.edited.contains(sign)){
 			p.sendMessage(plugin.colorize(Reference.PREFIX + "&aSign editing in progress"));
