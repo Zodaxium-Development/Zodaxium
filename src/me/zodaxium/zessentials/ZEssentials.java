@@ -39,8 +39,6 @@ public class ZEssentials extends JavaPlugin{
 		registerClasses();
 		
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new TimerWorldSave(this), 0, saveTimer);
-	
-		PacketUtils.registerPacketReceiver(this);
 	}
 	
 	private void registerClasses(){
