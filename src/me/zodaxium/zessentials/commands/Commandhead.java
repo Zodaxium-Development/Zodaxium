@@ -24,7 +24,7 @@ public class Commandhead implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission(Reference.PERM + "head")){
+			if(p.hasPermission(Reference.PERM_ADMIN)){
 				if(args.length < 1){
 					p.getInventory().addItem(getHead(p.getName()));
 					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Head: &9" + p.getName() + " &areceived"));

@@ -22,7 +22,7 @@ public class Commandtime implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission(Reference.PERM + "time")){
+			if(p.hasPermission(Reference.PERM_ADMIN)){
 				if(args.length < 1){
 					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aWorld: &9" + p.getWorld().getName() + "&a, Time: &9" + parseTime(p.getWorld().getTime())));
 				}else{

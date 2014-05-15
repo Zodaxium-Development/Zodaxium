@@ -30,3 +30,6 @@ commands:
   head:
     description: Get a player head
     usage: /head [player]
+  heal:
+    description: Heal yourself
+    usage: /heal [player]

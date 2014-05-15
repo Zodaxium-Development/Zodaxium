@@ -8,11 +8,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Commandclear implements CommandExecutor{
+public class Commandheal implements CommandExecutor{
 
-ZEssentials plugin;
+	ZEssentials plugin;
 	
-	public Commandclear(ZEssentials plugin, String cmd){
+	public Commandheal(ZEssentials plugin, String cmd){
 		plugin.getCommand(cmd).setExecutor(this);
 		this.plugin = plugin;
 	}
@@ -24,28 +24,32 @@ ZEssentials plugin;
 			Player p = (Player) sender;
 			if(p.hasPermission(Reference.PERM_ADMIN)){
 				if(args.length == 0){
-					p.getInventory().clear();
-					p.getInventory().setArmorContents(null);
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aInventory cleared"));
-				}else{
+					p.setHealth(p.getMaxHealth());
+					p.setFoodLevel(25);
+					p.setFallDistance(0);
+					p.setFireTicks(0);
+					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou have been healed"));
+				}else if(!(args.length < 1)){
 					Player t = plugin.getServer().getPlayer(args[0]);
 					if(p.hasPermission(Reference.PERM_ADMIN)){
 						if(t != null){
-							t.getInventory().clear();
-							t.getInventory().setArmorContents(null);
-							t.sendMessage(plugin.colorize(Reference.PREFIX + "&aInventory cleared"));
-							if(p.getName() != t.getName()){
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer: &9" + t.getName() + " &ainventory cleared"));
-							}
+							t.setHealth(p.getMaxHealth());
+							t.setFoodLevel(25);
+							t.setFallDistance(0);
+							t.setFireTicks(0);
+							t.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou have been healed"));
+							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou have healed: &9" + t.getName()));
 						}else{
 							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Not Online"));
 						}
 					}else{
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermission Denied"));
+						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermisssion Denied"));
 					}
+				}else{
+					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aUsage: /Heal (Player)"));
 				}
 			}else{
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermission Denied"));
+				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermisssion Denied"));
 			}
 		}
 		return true;

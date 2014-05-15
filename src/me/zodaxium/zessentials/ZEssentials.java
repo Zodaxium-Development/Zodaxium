@@ -6,6 +6,7 @@ import me.zodaxium.zessentials.commands.Commandclear;
 import me.zodaxium.zessentials.commands.Commandday;
 import me.zodaxium.zessentials.commands.Commandgamemode;
 import me.zodaxium.zessentials.commands.Commandhead;
+import me.zodaxium.zessentials.commands.Commandheal;
 import me.zodaxium.zessentials.commands.Commandnight;
 import me.zodaxium.zessentials.commands.Commandsetspawn;
 import me.zodaxium.zessentials.commands.Commandspawn;
@@ -46,6 +47,7 @@ public class ZEssentials extends JavaPlugin{
 		new Commandday(this, "day");
 		new Commandgamemode(this, "gm");
 		new Commandhead(this, "head");
+		new Commandheal(this, "heal");
 		new Commandnight(this, "night");
 		new Commandspawn(this, "spawn");
 		new Commandsetspawn(this, "setspawn");

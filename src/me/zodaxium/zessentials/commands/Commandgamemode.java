@@ -23,7 +23,7 @@ public class Commandgamemode implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(sender instanceof Player){
 			Player p = (Player) sender;
-			if(p.hasPermission(Reference.PERM + "gamemode")){
+			if(p.hasPermission(Reference.PERM_ADMIN)){
 				if(args.length == 1){
 					if(args[0].equals("0")){
 						p.setGameMode(GameMode.SURVIVAL);
@@ -39,7 +39,7 @@ public class Commandgamemode implements CommandExecutor{
 					}
 				}else if(!(args.length < 2)){
 					Player t = plugin.getServer().getPlayer(args[1]);
-					if(p.hasPermission(Reference.PERM + "gamemode.other")){
+					if(p.hasPermission(Reference.PERM_ADMIN)){
 						if(t != null){
 							if(args[0].equals("0")){
 								t.setGameMode(GameMode.SURVIVAL);
