@@ -2,6 +2,7 @@ package me.zodaxium.zessentials.listeners;
 
 import java.util.Arrays;
 
+import me.zodaxium.zessentials.Reference;
 import me.zodaxium.zessentials.ZEssentials;
 
 import org.apache.commons.lang.StringUtils;
@@ -39,9 +40,9 @@ public class Listenercommand implements Listener{
 						names[i] = "&c" + plugins[i].getDescription().getName();
 				}
 				Arrays.sort(names);
-				p.sendMessage(plugin.colorize("&9Plugins(&6" + names.length + "&9): " + StringUtils.join(names, "&9, ")));
+				p.sendMessage(Reference.colorize("&9Plugins(&6" + names.length + "&9): " + StringUtils.join(names, "&9, ")));
 			}else{
-				p.sendMessage(plugin.colorize("&9Plugins(&61&9): &aZodaxiumGaming"));
+				p.sendMessage(Reference.colorize("&9Plugins(&61&9): &aZodaxiumGaming"));
 			}
 		}
 	}

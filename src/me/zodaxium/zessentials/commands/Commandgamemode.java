@@ -27,15 +27,15 @@ public class Commandgamemode implements CommandExecutor{
 				if(args.length == 1){
 					if(args[0].equals("0")){
 						p.setGameMode(GameMode.SURVIVAL);
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aGameMode: &9&osurvival"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aGameMode: &9&osurvival"));
 					}else if(args[0].equals("1")){
 						p.setGameMode(GameMode.CREATIVE);
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aGameMode: &9&ocreative"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aGameMode: &9&ocreative"));
 					}else if(args[0].equals("2")){
 						p.setGameMode(GameMode.ADVENTURE);
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aGameMode: &9&oadventure"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aGameMode: &9&oadventure"));
 					}else{
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aUsage: /Gm (Mode)"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aUsage: /Gm (Mode)"));
 					}
 				}else if(!(args.length < 2)){
 					Player t = plugin.getServer().getPlayer(args[1]);
@@ -43,30 +43,30 @@ public class Commandgamemode implements CommandExecutor{
 						if(t != null){
 							if(args[0].equals("0")){
 								t.setGameMode(GameMode.SURVIVAL);
-								t.sendMessage(plugin.colorize(Reference.PREFIX + "&aGameMode: &9&osurvival"));
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&a" + t.getName() + " GameMode: &9&osurvival"));
+								t.sendMessage(Reference.colorize(Reference.PREFIX + "&aGameMode: &9&osurvival"));
+								p.sendMessage(Reference.colorize(Reference.PREFIX + "&a" + t.getName() + " GameMode: &9&osurvival"));
 							}else if(args[0].equals("1")){
 								t.setGameMode(GameMode.CREATIVE);
-								t.sendMessage(plugin.colorize(Reference.PREFIX + "&aGameMode: &9&ocreative"));
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&a" + t.getName() + " GameMode: &9&ocreative"));
+								t.sendMessage(Reference.colorize(Reference.PREFIX + "&aGameMode: &9&ocreative"));
+								p.sendMessage(Reference.colorize(Reference.PREFIX + "&a" + t.getName() + " GameMode: &9&ocreative"));
 							}else if(args[0].equals("2")){
 								t.setGameMode(GameMode.ADVENTURE);
-								t.sendMessage(plugin.colorize(Reference.PREFIX + "&aGameMode: &9&oadventure"));
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&a" + t.getName() + " GameMode: &9&oadventure"));
+								t.sendMessage(Reference.colorize(Reference.PREFIX + "&aGameMode: &9&oadventure"));
+								p.sendMessage(Reference.colorize(Reference.PREFIX + "&a" + t.getName() + " GameMode: &9&oadventure"));
 							}else{
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&aUsage: /gm (mode)"));
+								p.sendMessage(Reference.colorize(Reference.PREFIX + "&aUsage: /gm (mode)"));
 							}
 						}else{
-							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Not Online"));
+							p.sendMessage(Reference.DENY_USER);
 						}
 					}else{
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermisssion Denied"));
+						p.sendMessage(Reference.DENY_PERM);
 					}
 				}else{
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aUsage: /Gm (Mode) (Player)"));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aUsage: /Gm (Mode) (Player)"));
 				}
 			}else{
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermission Denied"));
+				p.sendMessage(Reference.DENY_PERM);
 			}
 		}
 		return true;

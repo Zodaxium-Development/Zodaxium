@@ -30,7 +30,7 @@ public class Commandsetspawn implements CommandExecutor {
 				String location = world.getName() + ":" + loc.getX() + ":" + loc.getY() + ":" + loc.getZ() + ":" + loc.getYaw() + ":" + loc.getPitch();
 				plugin.getConfig().set("Spawn", location);
 				plugin.saveConfig();
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aSpawn has been set!"));
+				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aSpawn has been set!"));
 			}else{
 				p.sendMessage("Unknown command. Type \"/help\" for help.");
 			}

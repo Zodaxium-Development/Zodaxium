@@ -27,13 +27,13 @@ public class Commandhead implements CommandExecutor{
 			if(p.hasPermission(Reference.PERM_ADMIN)){
 				if(args.length < 1){
 					p.getInventory().addItem(getHead(p.getName()));
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Head: &9" + p.getName() + " &areceived"));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer Head: &9" + p.getName() + " &areceived"));
 				}else{
 					p.getInventory().addItem(getHead(args[0]));
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Head: &9" + args[0] + " &areceived"));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer Head: &9" + args[0] + " &areceived"));
 				}
 			}else{
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermission Denied"));
+				p.sendMessage(Reference.DENY_PERM);
 			}
 		}
 		return true;
@@ -43,7 +43,7 @@ public class Commandhead implements CommandExecutor{
 		ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
 		SkullMeta meta = (SkullMeta) head.getItemMeta();
 		meta.setOwner(owner);
-		meta.setDisplayName(plugin.colorize("&a" + owner + "'s head"));
+		meta.setDisplayName(Reference.colorize("&a" + owner + "'s head"));
 		head.setItemMeta(meta);
 		return head;
 	}

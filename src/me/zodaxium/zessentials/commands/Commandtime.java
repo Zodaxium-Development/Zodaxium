@@ -24,17 +24,17 @@ public class Commandtime implements CommandExecutor{
 			Player p = (Player) sender;
 			if(p.hasPermission(Reference.PERM_ADMIN)){
 				if(args.length < 1){
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aWorld: &9" + p.getWorld().getName() + "&a, Time: &9" + parseTime(p.getWorld().getTime())));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aWorld: &9" + p.getWorld().getName() + "&a, Time: &9" + parseTime(p.getWorld().getTime())));
 				}else{
 					World world = plugin.getServer().getWorld(args[0]);
 					if(world != null){
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aWorld: &9" + world.getName() + "&a, Time: &9" + parseTime(world.getTime())));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aWorld: &9" + world.getName() + "&a, Time: &9" + parseTime(world.getTime())));
 					}else{
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aWorld: &9" + args[0] + " &anot found"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aWorld: &9" + args[0] + " &anot found"));
 					}
 				}
 			}else{
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermission Denied"));
+				p.sendMessage(Reference.DENY_PERM);
 			}
 		}
 		return true;

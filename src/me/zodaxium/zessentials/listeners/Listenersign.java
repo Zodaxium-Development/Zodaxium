@@ -7,7 +7,6 @@ import java.util.List;
 import me.zodaxium.zessentials.Reference;
 import me.zodaxium.zessentials.ZEssentials;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
@@ -41,13 +40,14 @@ public class Listenersign implements Listener{
 	public void onSignChange(SignChangeEvent e){
 		String[] lines = e.getLines();
 		for(int i = 0; i < lines.length; i++){
-			e.setLine(i, plugin.colorize(lines[i]));
+			e.setLine(i, Reference.colorize(lines[i]));
 		}
 	}
 	
 	@EventHandler
 	public void onPlayerSignInteract(PlayerInteractEvent e){
 		Player p = e.getPlayer();
+		if(!plugin.plibs) return;
 		if(!e.hasBlock()) return;
 		if(p.getItemInHand().getType() != Material.AIR) return;
 		if(e.getAction() != Action.RIGHT_CLICK_BLOCK) return;
@@ -57,7 +57,7 @@ public class Listenersign implements Listener{
 		if(!p.isSneaking()) return;
 		if(!p.hasPermission("zessentials.signedit")) return;
 		if(edit.contains(sign)){
-			p.sendMessage(plugin.colorize(Reference.PREFIX + "&aSign editing in progress"));
+			p.sendMessage(Reference.colorize(Reference.PREFIX + "&aSign editing in progress"));
 			e.setCancelled(true);
 			return;
 		}
@@ -65,7 +65,7 @@ public class Listenersign implements Listener{
 		try{
 			sendSignWindow(p, sign);
 		}catch(InvocationTargetException e1){
-			p.sendMessage(plugin.colorize(Reference.PREFIX + "&aError when trying to edit sign"));
+			p.sendMessage(Reference.colorize(Reference.PREFIX + "&aError when trying to edit sign"));
 		}
 		e.setCancelled(true);
 	}
@@ -91,7 +91,7 @@ public class Listenersign implements Listener{
 				for(int i = 0; i < 4; i++){
 					sign.setLine(i, lines[i]);
 				}
-				e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', Reference.PREFIX + "&aSign Updated!"));
+				e.getPlayer().sendMessage(Reference.colorize(Reference.PREFIX + "&aSign Updated!"));
 				updateSign(sign);
 			}
 		});
@@ -100,7 +100,7 @@ public class Listenersign implements Listener{
 	private void updateSign(Sign sign){
 		String[] lines = sign.getLines();
 		for(int i = 0; i < 4; i++){
-			 sign.setLine(i, plugin.colorize(lines[i]));
+			 sign.setLine(i, Reference.colorize(lines[i]));
 		}
 		sign.update();
 	}

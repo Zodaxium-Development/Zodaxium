@@ -26,9 +26,9 @@ public class Commandspawn implements CommandExecutor{
 				if(args.length < 1){
 					if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
 						p.teleport(plugin.spawn);
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
 					}else{
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
+						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
 					}
 				}else{
 					if(p.hasPermission(Reference.PERM_ADMIN)){
@@ -36,24 +36,24 @@ public class Commandspawn implements CommandExecutor{
 						if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
 							if(t != null){
 								t.teleport(plugin.spawn);
-								t.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer: &9" + t.getName() + " &asent to spawn"));
+								t.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
+								p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer: &9" + t.getName() + " &asent to spawn"));
 							}else{
-								p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Not Online"));
+								p.sendMessage(Reference.DENY_USER);
 							}
 						}else{
-							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
+							p.sendMessage(Reference.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
 						}
 					}else{
 						if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
 							p.teleport(plugin.spawn);
 						}else{
-							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
+							p.sendMessage(Reference.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
 						}
 					}
 				}
 			}else{
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aSpawn has not been set!"));
+				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aSpawn has not been set!"));
 			}
 		}
 		return true;

@@ -28,7 +28,7 @@ public class Commandheal implements CommandExecutor{
 					p.setFoodLevel(25);
 					p.setFallDistance(0);
 					p.setFireTicks(0);
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou have been healed"));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou have been healed"));
 				}else if(!(args.length < 1)){
 					Player t = plugin.getServer().getPlayer(args[0]);
 					if(p.hasPermission(Reference.PERM_ADMIN)){
@@ -37,19 +37,19 @@ public class Commandheal implements CommandExecutor{
 							t.setFoodLevel(25);
 							t.setFallDistance(0);
 							t.setFireTicks(0);
-							t.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou have been healed"));
-							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aYou have healed: &9" + t.getName()));
+							t.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou have been healed"));
+							p.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou have healed: &9" + t.getName()));
 						}else{
-							p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPlayer Not Online"));
+							p.sendMessage(Reference.DENY_USER);
 						}
 					}else{
-						p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermisssion Denied"));
+						p.sendMessage(Reference.DENY_PERM);
 					}
 				}else{
-					p.sendMessage(plugin.colorize(Reference.PREFIX + "&aUsage: /Heal (Player)"));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aUsage: /Heal (Player)"));
 				}
 			}else{
-				p.sendMessage(plugin.colorize(Reference.PREFIX + "&aPermisssion Denied"));
+				p.sendMessage(Reference.DENY_PERM);
 			}
 		}
 		return true;

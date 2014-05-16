@@ -19,7 +19,6 @@ import me.zodaxium.zessentials.listeners.Listenerrespawn;
 import me.zodaxium.zessentials.listeners.Listenersign;
 import me.zodaxium.zessentials.timers.TimerWorldSave;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -27,11 +26,12 @@ public class ZEssentials extends JavaPlugin{
 	
 	public Location spawn = null;
 	public int saveTimer = 0;
+	public boolean plibs = true;
 	
 	public void onEnable(){
 		if(!getServer().getPluginManager().getPlugin("ProtocolLib").isEnabled()){
-			this.setEnabled(false);
-			getLogger().log(Level.SEVERE, "Could not load ProtocolLib! Disabling.");
+			plibs = false;
+			getLogger().log(Level.SEVERE, "Could not load ProtocolLib!");
 		}
 		
 		saveDefaultConfig();
@@ -65,9 +65,5 @@ public class ZEssentials extends JavaPlugin{
 		String[] loc = getConfig().getString("Spawn").split(":");
 		spawn = ((getServer().getWorld(loc[0]) != null) ? new Location(getServer().getWorld(loc[0]), Double.parseDouble(loc[1]), Double.parseDouble(loc[2]), Double.parseDouble(loc[3]), Float.parseFloat(loc[4]), Float.parseFloat(loc[5])) : null);
 		saveTimer = (getConfig().getInt("SaveTimer") * 1200);
-	}
-	
-	public String colorize(String message){
-		return ChatColor.translateAlternateColorCodes('&', message);
 	}
 }
