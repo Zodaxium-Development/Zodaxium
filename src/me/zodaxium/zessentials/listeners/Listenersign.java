@@ -32,8 +32,8 @@ public class Listenersign implements Listener{
 	
 	public Listenersign(ZEssentials plugin){
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
-		registerPacketReceiver();
 		this.plugin = plugin;
+		registerPacketReceiver();
 	}
 	
 	@EventHandler

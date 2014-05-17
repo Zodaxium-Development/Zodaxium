@@ -29,7 +29,7 @@ public class ZEssentials extends JavaPlugin{
 	public boolean plibs = true;
 	
 	public void onEnable(){
-		if(!getServer().getPluginManager().getPlugin("ProtocolLib").isEnabled()){
+		if(!getServer().getPluginManager().isPluginEnabled("ProtocolLib")){
 			plibs = false;
 			getLogger().log(Level.SEVERE, "Could not load ProtocolLib!");
 		}
