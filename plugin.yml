@@ -32,3 +32,9 @@ commands:
   heal:
     description: Heal yourself
     usage: /heal [player]
+  lore:
+    description: Change item lore
+    usage: /lore (lore)
+  name:
+    description: Change item names
+    usage: /name (name)
