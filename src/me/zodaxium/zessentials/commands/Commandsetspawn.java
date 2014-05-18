@@ -34,6 +34,8 @@ public class Commandsetspawn implements CommandExecutor {
 			}else{
 				p.sendMessage("Unknown command. Type \"/help\" for help.");
 			}
+		}else{
+			sender.sendMessage(Reference.DENY_CONSOLE);
 		}
 		return true;
 	}

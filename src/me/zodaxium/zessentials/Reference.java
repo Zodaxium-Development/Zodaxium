@@ -13,6 +13,7 @@ public class Reference{
 	public static String PERM_USER = colorize("zodaxium.user");
 	public static String DENY_PERM = colorize(PREFIX + "&aPermission Denied");
 	public static String DENY_USER = colorize(PREFIX + "&aPlayer is not online");
+	public static String DENY_CONSOLE = colorize(PREFIX + "&aOnly players can use this command!");
 	
 	public static String colorize(String message){
 		return ChatColor.translateAlternateColorCodes('&', message);

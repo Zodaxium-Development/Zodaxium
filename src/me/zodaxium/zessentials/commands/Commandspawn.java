@@ -55,6 +55,8 @@ public class Commandspawn implements CommandExecutor{
 			}else{
 				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aSpawn has not been set!"));
 			}
+		}else{
+			sender.sendMessage(Reference.DENY_CONSOLE);
 		}
 		return true;
 	}

@@ -38,6 +38,8 @@ public class Commandnight implements CommandExecutor{
 			}else{
 				p.sendMessage(Reference.DENY_PERM);
 			}
+		}else{
+			sender.sendMessage(Reference.DENY_CONSOLE);
 		}
 		return true;
 	}
