@@ -15,7 +15,7 @@ public class Commandtop implements CommandExecutor{
 	ZEssentials plugin;
 	
 	public Commandtop(ZEssentials plugin, String cmd){
-		plugin.getCommand("cmd").setExecutor(this);
+		plugin.getCommand(cmd).setExecutor(this);
 		this.plugin = plugin;
 	}
 
