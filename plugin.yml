@@ -38,3 +38,6 @@ commands:
   name:
     description: Change item names
     usage: /name (name)
+  top:
+    description: Teleport to highest block
+    usage: /top
