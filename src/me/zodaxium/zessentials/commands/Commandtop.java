@@ -27,9 +27,9 @@ public class Commandtop implements CommandExecutor{
 				Block block = p.getWorld().getHighestBlockAt(p.getLocation());
 				if(block != null){
 					p.teleport(new Location(p.getWorld(), block.getLocation().getX(), block.getLocation().getY() + 2, block.getLocation().getZ(), p.getLocation().getYaw(), p.getLocation().getPitch()));
-					p.sendMessage(Reference.colorize(Reference.PREFIX + " &aTeleporting to: (" + block.getX() + "," + (block.getY() + 2) + "," + block.getZ()));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aTeleporting to: (" + block.getX() + "," + (block.getY() + 2) + "," + block.getZ()));
 				}else{
-					p.sendMessage(Reference.colorize(Reference.PREFIX + " &aError getting highest block"));
+					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aError getting highest block"));
 				}
 			}else{
 				p.sendMessage(Reference.DENY_PERM);
