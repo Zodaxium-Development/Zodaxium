@@ -1,7 +1,7 @@
 package me.zodaxium.essentials.commands;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
 
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -16,19 +16,19 @@ public class Commandtime extends AbstractCommand{
 
 	@Override
 	public void execute(Player p, String[] args){
-		if(p.hasPermission(Reference.PERM_ADMIN)){
+		if(p.hasPermission(ZodaxApi.PERM_ADMIN)){
 			if(args.length < 1){
-				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aWorld: &9" + p.getWorld().getName() + "&a, Time: &9" + parseTime(p.getWorld().getTime())));
+				ZodaxApi.sendMessage(p, "&aWorld: &9" + p.getWorld().getName() + "&a, Time: &9" + parseTime(p.getWorld().getTime()));
 			}else{
 				World world = plugin.getServer().getWorld(args[0]);
 				if(world != null){
-					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aWorld: &9" + world.getName() + "&a, Time: &9" + parseTime(world.getTime())));
+					ZodaxApi.sendMessage(p, "&aWorld: &9" + world.getName() + "&a, Time: &9" + parseTime(p.getWorld().getTime()));
 				}else{
-					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aWorld: &9" + args[0] + " &anot found"));
+					ZodaxApi.sendMessage(p, "&aWorld: &9" + args[0] + " &anot found");
 				}
 			}
 		}else{
-			p.sendMessage(Reference.DENY_PERM);
+			p.sendMessage(ZodaxApi.DENY_PERM);
 		}
 	}
 	

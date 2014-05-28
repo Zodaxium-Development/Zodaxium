@@ -4,8 +4,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
+import me.zodaxium.zapi.api.ColorApi;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -43,7 +44,7 @@ public class Listenersign implements Listener{
 	public void onSignChange(SignChangeEvent e){
 		String[] lines = e.getLines();
 		for(int i = 0; i < lines.length; i++){
-			e.setLine(i, Reference.colorize(lines[i]));
+			e.setLine(i, ColorApi.color(lines[i]));
 		}
 	}
 	
@@ -58,9 +59,9 @@ public class Listenersign implements Listener{
 		if(!(e.getClickedBlock().getState() instanceof Sign)) return;
 		Sign sign = (Sign) e.getClickedBlock().getState();
 		if(!p.isSneaking()) return;
-		if(!p.hasPermission("zessentials.signedit")) return;
+		if(!p.hasPermission(ZodaxApi.PERM_ADMIN)) return;
 		if(edit.contains(sign)){
-			p.sendMessage(Reference.colorize(Reference.PREFIX + "&aSign editing in progress"));
+			ZodaxApi.sendMessage(p, "&aSign editing in progress");
 			e.setCancelled(true);
 			return;
 		}
@@ -68,7 +69,7 @@ public class Listenersign implements Listener{
 		try{
 			sendSignWindow(p, sign);
 		}catch(InvocationTargetException e1){
-			p.sendMessage(Reference.colorize(Reference.PREFIX + "&aError when trying to edit sign"));
+			ZodaxApi.sendMessage(p, "&aError when trying to edit sign");
 		}
 		e.setCancelled(true);
 	}
@@ -94,7 +95,7 @@ public class Listenersign implements Listener{
 				for(int i = 0; i < 4; i++){
 					sign.setLine(i, lines[i]);
 				}
-				e.getPlayer().sendMessage(Reference.colorize(Reference.PREFIX + "&aSign Updated!"));
+				ZodaxApi.sendMessage(e.getPlayer(), "&aSign Updated!");
 				updateSign(sign);
 			}
 		});
@@ -103,7 +104,7 @@ public class Listenersign implements Listener{
 	private void updateSign(Sign sign){
 		String[] lines = sign.getLines();
 		for(int i = 0; i < 4; i++){
-			 sign.setLine(i, Reference.colorize(lines[i]));
+			 sign.setLine(i, ColorApi.color(lines[i]));
 		}
 		sign.update();
 	}

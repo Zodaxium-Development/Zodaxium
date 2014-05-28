@@ -23,6 +23,10 @@ public class Zodaxium extends JavaPlugin{
 	
 	public void onEnable(){
 		if(!getServer().getPluginManager().isPluginEnabled("ProtocolLib")){
+			getLogger().log(Level.SEVERE, "Could not load ZodaxApi! Disabling!");
+			getServer().getPluginManager().disablePlugin(this);
+		}
+		if(!getServer().getPluginManager().isPluginEnabled("ProtocolLib")){
 			plib = false;
 			getLogger().log(Level.SEVERE, "Could not load ProtocolLib!");
 		}

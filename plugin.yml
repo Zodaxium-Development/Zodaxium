@@ -3,6 +3,8 @@ author: Zodaxium
 version: 1
 description: Zodaxium Spawn Plugin
 main: me.zodaxium.essentials.Zodaxium
+softdepend: [ProtocolLib]
+depend: [ZodaxApi]
 commands:
   spawn:
     description: Teleport to Spawn!

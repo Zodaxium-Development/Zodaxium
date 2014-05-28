@@ -1,7 +1,7 @@
 package me.zodaxium.essentials.commands;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
 
 import org.bukkit.entity.Player;
 
@@ -18,36 +18,24 @@ public class Commandspawn extends AbstractCommand{
 	public void execute(Player p, String[] args){
 		if(plugin.spawn != null && plugin.getServer().getWorlds().contains(plugin.spawn.getWorld())){
 			if(args.length < 1){
-				if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
-					p.teleport(plugin.spawn);
-					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
-				}else{
-					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
-				}
+				p.teleport(plugin.spawn);
+				ZodaxApi.sendMessage(p, "&aYou were teleported to spawn");
 			}else{
-				if(p.hasPermission(Reference.PERM_ADMIN)){
+				if(p.hasPermission(ZodaxApi.PERM_ADMIN)){
 					Player t = plugin.getServer().getPlayer(args[0]);
-					if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
-						if(t != null){
-							t.teleport(plugin.spawn);
-							t.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
-							p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer: &9" + t.getName() + " &asent to spawn"));
-						}else{
-							p.sendMessage(Reference.DENY_USER);
-						}
+					if(t != null){
+						t.teleport(plugin.spawn);
+						ZodaxApi.sendMessage(t, "&aYou were teleported to spawn");
+						ZodaxApi.sendMessage(p, "&aPlayer: &9" + t.getName() + " &asent to spawn");
 					}else{
-						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
+						p.sendMessage(ZodaxApi.DENY_USER);
 					}
 				}else{
-					if(plugin.spawn != null && plugin.getServer().getWorld(plugin.spawn.getWorld().getName()) != null){
-						p.teleport(plugin.spawn);
-					}else{
-						p.sendMessage(Reference.colorize(Reference.PREFIX + "&aNo Spawn Set!"));
-					}
+					p.teleport(plugin.spawn);
 				}
 			}
 		}else{
-			p.sendMessage(Reference.colorize(Reference.PREFIX + "&aSpawn has not been set!"));
+			ZodaxApi.sendMessage(p, "&aSpawn has not been set!");
 		}
 	}
 }

@@ -2,8 +2,8 @@ package me.zodaxium.essentials.listeners;
 
 import java.util.Arrays;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
 
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
@@ -40,9 +40,9 @@ public class Listenercommand implements Listener{
 						names[i] = "&c" + plugins[i].getDescription().getName();
 				}
 				Arrays.sort(names);
-				p.sendMessage(Reference.colorize("&9Plugins(&6" + names.length + "&9): " + StringUtils.join(names, "&9, ")));
+				ZodaxApi.sendMessage(p, "&9Plugins(&6" + names.length + "&9): " + StringUtils.join(names, "&9, "));
 			}else{
-				p.sendMessage(Reference.colorize("&9Plugins(&61&9): &aZodaxiumGaming"));
+				ZodaxApi.sendMessage(p, "&9Plugins(&61&9): &aZodaxiumGaming");
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 package me.zodaxium.essentials.commands;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -17,16 +17,16 @@ public class Commandtop extends AbstractCommand{
 
 	@Override
 	public void execute(Player p, String[] args){
-		if(p.hasPermission(Reference.PERM_ADMIN)){
+		if(p.hasPermission(ZodaxApi.PERM_ADMIN)){
 			Block block = p.getWorld().getHighestBlockAt(p.getLocation());
 			if(block != null){
 				p.teleport(new Location(p.getWorld(), block.getLocation().getX() + .5, block.getLocation().getY() + 1, block.getLocation().getZ() + .5, p.getLocation().getYaw(), p.getLocation().getPitch()));
-				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aTeleporting to: (" + block.getX() + "," + (block.getY() + 2) + "," + block.getZ()));
+				ZodaxApi.sendMessage(p, "&aTeleporting to: (" + block.getX() + "," + (block.getY() + 2) + "," + block.getZ());
 			}else{
-				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aError getting highest block"));
+				ZodaxApi.sendMessage(p, "&aError getting highest block");
 			}
 		}else{
-			p.sendMessage(Reference.DENY_PERM);
+			p.sendMessage(ZodaxApi.DENY_PERM);
 		}
 	}
 }

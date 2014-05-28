@@ -1,7 +1,7 @@
 package me.zodaxium.essentials.commands;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -64,7 +64,7 @@ public class BaseCommand implements CommandExecutor{
 			if(cmd != null)
 				cmd.execute(p, args);
 		}else{
-			sender.sendMessage(Reference.DENY_CONSOLE);
+			sender.sendMessage(ZodaxApi.DENY_CONSOLE);
 		}
 		return true;
 	}

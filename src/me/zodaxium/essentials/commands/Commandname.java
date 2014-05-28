@@ -1,7 +1,8 @@
 package me.zodaxium.essentials.commands;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
+import me.zodaxium.zapi.api.ItemApi;
 
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
@@ -16,14 +17,14 @@ public class Commandname extends AbstractCommand{
 
 	@Override
 	public void execute(Player p, String[] args){
-		if(p.hasPermission(Reference.PERM_ADMIN)){
+		if(p.hasPermission(ZodaxApi.PERM_ADMIN)){
 			if(!(args.length < 1)){
-				Reference.nameItem(p.getItemInHand(), StringUtils.join(args, " "), "NAME");
+				ItemApi.lore(p.getItemInHand(), StringUtils.join(args, " "));
 			}else{
-				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aUsage: /Name (Name)"));
+				ZodaxApi.sendMessage(p, "&aUsage: /Name (Name)");
 			}
 		}else{
-			p.sendMessage(Reference.DENY_PERM);
+			p.sendMessage(ZodaxApi.DENY_PERM);
 		}
 	}
 }

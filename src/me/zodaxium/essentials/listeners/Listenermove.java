@@ -1,7 +1,7 @@
 package me.zodaxium.essentials.listeners;
 
-import me.zodaxium.essentials.Reference;
 import me.zodaxium.essentials.Zodaxium;
+import me.zodaxium.zapi.ZodaxApi;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class Listenermove implements Listener{
 		Location loc = p.getLocation();
 		if(e.getTo() == e.getFrom()) return;
 		if(loc.getY() <= -5){ 
-			p.sendMessage(Reference.colorize(Reference.PREFIX + "&aYou were teleported to spawn"));
+			ZodaxApi.sendMessage(p, "&aYou were teleported to spawn");
 			p.teleport(plugin.spawn);
 			p.setFallDistance(0);
 		}
