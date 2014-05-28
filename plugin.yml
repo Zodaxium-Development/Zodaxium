@@ -25,7 +25,6 @@ commands:
   ci:
     description: Clear your inventory
     usage: /ci [player]
-    aliases: [clear]
   head:
     description: Get a player head
     usage: /head [player]

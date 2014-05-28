@@ -2,18 +2,7 @@ package me.zodaxium.zessentials;
 
 import java.util.logging.Level;
 
-import me.zodaxium.zessentials.commands.Commandclear;
-import me.zodaxium.zessentials.commands.Commandday;
-import me.zodaxium.zessentials.commands.Commandgamemode;
-import me.zodaxium.zessentials.commands.Commandhead;
-import me.zodaxium.zessentials.commands.Commandheal;
-import me.zodaxium.zessentials.commands.Commandlore;
-import me.zodaxium.zessentials.commands.Commandname;
-import me.zodaxium.zessentials.commands.Commandnight;
-import me.zodaxium.zessentials.commands.Commandsetspawn;
-import me.zodaxium.zessentials.commands.Commandspawn;
-import me.zodaxium.zessentials.commands.Commandtime;
-import me.zodaxium.zessentials.commands.Commandtop;
+import me.zodaxium.zessentials.commands.BaseCommand;
 import me.zodaxium.zessentials.listeners.Listenercommand;
 import me.zodaxium.zessentials.listeners.Listenerjoin;
 import me.zodaxium.zessentials.listeners.Listenermove;
@@ -30,6 +19,7 @@ public class ZEssentials extends JavaPlugin{
 	public Location spawn = null;
 	public int saveTimer = 0;
 	public boolean plibs = true;
+	String[] cmds = {"ci", "day", "gm", "head", "heal", "lore", "name", "night", "spawn", "setspawn", "time", "top"};
 	
 	public void onEnable(){
 		if(!getServer().getPluginManager().isPluginEnabled("ProtocolLib")){
@@ -39,6 +29,8 @@ public class ZEssentials extends JavaPlugin{
 		
 		saveDefaultConfig();
 		
+		new BaseCommand(this, cmds);
+		
 		generateVariables();
 		registerClasses();
 		
@@ -46,19 +38,6 @@ public class ZEssentials extends JavaPlugin{
 	}
 	
 	private void registerClasses(){
-		new Commandclear(this, "ci");
-		new Commandday(this, "day");
-		new Commandgamemode(this, "gm");
-		new Commandhead(this, "head");
-		new Commandheal(this, "heal");
-		new Commandlore(this, "lore");
-		new Commandname(this, "name");
-		new Commandnight(this, "night");
-		new Commandspawn(this, "spawn");
-		new Commandsetspawn(this, "setspawn");
-		new Commandtime(this, "time");
-		new Commandtop(this, "top");
-		
 		new Listenercommand(this);
 		new Listenerjoin(this);
 		new Listenermove(this);

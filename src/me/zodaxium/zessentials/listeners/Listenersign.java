@@ -28,12 +28,15 @@ public class Listenersign implements Listener{
 
 	ZEssentials plugin;
 	List<Sign> edit = new ArrayList<Sign>();
-	private static ProtocolManager pm = ProtocolLibrary.getProtocolManager();
+	private static ProtocolManager pm;
 	
 	public Listenersign(ZEssentials plugin){
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		this.plugin = plugin;
-		registerPacketReceiver();
+		if(!plugin.plibs){
+			pm = ProtocolLibrary.getProtocolManager();
+			registerPacketReceiver();
+		}
 	}
 	
 	@EventHandler

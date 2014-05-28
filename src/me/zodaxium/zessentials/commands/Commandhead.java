@@ -4,41 +4,31 @@ import me.zodaxium.zessentials.Reference;
 import me.zodaxium.zessentials.ZEssentials;
 
 import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class Commandhead implements CommandExecutor{
+public class Commandhead extends AbstractCommand{
 
 	ZEssentials plugin;
 	
-	public Commandhead(ZEssentials plugin, String cmd){
-		plugin.getCommand(cmd).setExecutor(this);
+	public Commandhead(ZEssentials plugin){
 		this.plugin = plugin;
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-		if(sender instanceof Player){
-			Player p = (Player) sender;
-			if(p.hasPermission(Reference.PERM_ADMIN)){
-				if(args.length < 1){
-					p.getInventory().addItem(getHead(p.getName()));
-					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer Head: &9" + p.getName() + " &areceived"));
-				}else{
-					p.getInventory().addItem(getHead(args[0]));
-					p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer Head: &9" + args[0] + " &areceived"));
-				}
+	public void execute(Player p, String[] args){
+		if(p.hasPermission(Reference.PERM_ADMIN)){
+			if(args.length < 1){
+				p.getInventory().addItem(getHead(p.getName()));
+				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer Head: &9" + p.getName() + " &areceived"));
 			}else{
-				p.sendMessage(Reference.DENY_PERM);
+				p.getInventory().addItem(getHead(args[0]));
+				p.sendMessage(Reference.colorize(Reference.PREFIX + "&aPlayer Head: &9" + args[0] + " &areceived"));
 			}
 		}else{
-			sender.sendMessage(Reference.DENY_CONSOLE);
+			p.sendMessage(Reference.DENY_PERM);
 		}
-		return true;
 	}
 	
 	private ItemStack getHead(String owner){
