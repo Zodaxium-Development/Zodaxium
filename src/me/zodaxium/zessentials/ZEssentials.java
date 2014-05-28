@@ -18,12 +18,12 @@ public class ZEssentials extends JavaPlugin{
 	
 	public Location spawn = null;
 	public int saveTimer = 0;
-	public boolean plibs = true;
+	public boolean plib = true;
 	String[] cmds = {"ci", "day", "gm", "head", "heal", "lore", "name", "night", "spawn", "setspawn", "time", "top"};
 	
 	public void onEnable(){
 		if(!getServer().getPluginManager().isPluginEnabled("ProtocolLib")){
-			plibs = false;
+			plib = false;
 			getLogger().log(Level.SEVERE, "Could not load ProtocolLib!");
 		}
 		

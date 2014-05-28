@@ -33,7 +33,7 @@ public class Listenersign implements Listener{
 	public Listenersign(ZEssentials plugin){
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		this.plugin = plugin;
-		if(!plugin.plibs){
+		if(plugin.plib){
 			pm = ProtocolLibrary.getProtocolManager();
 			registerPacketReceiver();
 		}
@@ -50,7 +50,7 @@ public class Listenersign implements Listener{
 	@EventHandler
 	public void onPlayerSignInteract(PlayerInteractEvent e){
 		Player p = e.getPlayer();
-		if(!plugin.plibs) return;
+		if(!plugin.plib) return;
 		if(!e.hasBlock()) return;
 		if(p.getItemInHand().getType() != Material.AIR) return;
 		if(e.getAction() != Action.RIGHT_CLICK_BLOCK) return;
