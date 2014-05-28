@@ -2,7 +2,7 @@ name: Zodaxium
 author: Zodaxium
 version: 1
 description: Zodaxium Spawn Plugin
-main: me.zodaxium.zessentials.ZEssentials
+main: me.zodaxium.essentials.Zodaxium
 commands:
   spawn:
     description: Teleport to Spawn!
