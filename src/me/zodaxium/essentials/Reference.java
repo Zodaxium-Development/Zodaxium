@@ -1,4 +1,4 @@
-package me.zodaxium.zessentials;
+package me.zodaxium.essentials;
 
 import java.util.Arrays;
 

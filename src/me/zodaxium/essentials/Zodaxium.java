@@ -1,20 +1,20 @@
-package me.zodaxium.zessentials;
+package me.zodaxium.essentials;
 
 import java.util.logging.Level;
 
-import me.zodaxium.zessentials.commands.BaseCommand;
-import me.zodaxium.zessentials.listeners.Listenercommand;
-import me.zodaxium.zessentials.listeners.Listenerjoin;
-import me.zodaxium.zessentials.listeners.Listenermove;
-import me.zodaxium.zessentials.listeners.Listenerquit;
-import me.zodaxium.zessentials.listeners.Listenerrespawn;
-import me.zodaxium.zessentials.listeners.Listenersign;
-import me.zodaxium.zessentials.timers.TimerWorldSave;
+import me.zodaxium.essentials.commands.BaseCommand;
+import me.zodaxium.essentials.listeners.Listenercommand;
+import me.zodaxium.essentials.listeners.Listenerjoin;
+import me.zodaxium.essentials.listeners.Listenermove;
+import me.zodaxium.essentials.listeners.Listenerquit;
+import me.zodaxium.essentials.listeners.Listenerrespawn;
+import me.zodaxium.essentials.listeners.Listenersign;
+import me.zodaxium.essentials.timers.TimerWorldSave;
 
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ZEssentials extends JavaPlugin{
+public class Zodaxium extends JavaPlugin{
 	
 	public Location spawn = null;
 	public int saveTimer = 0;
